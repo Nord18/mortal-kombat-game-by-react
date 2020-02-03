@@ -4,6 +4,9 @@ import { Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import CharactersList from './components/CharactersList';
 import ChooseCharacter from './components/ChooseCharacter';
+import Alert from './components/UI/Alert';
+
+const alertTextMain = 'Move around items keys ARROWLEFT and ARROWRIGHT and press ENTER'
 
 let history = createBrowserHistory()
 
@@ -123,9 +126,7 @@ class App extends React.Component {
           <Route path="/choose-character/:id">
             <ChooseCharacter characters={this.state.characters} />
           </Route>
-          <div className="alert alert-primary" role="alert">
-            Move around items keys ARROWLEFT and ARROWRIGHT and press ENTER
-          </div>
+          <Alert text={alertTextMain} bgColor="primary" />
         </div>
       </Router>
     )

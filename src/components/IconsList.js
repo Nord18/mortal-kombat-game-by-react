@@ -1,4 +1,7 @@
 import React from 'react';
+import Alert from '../components/UI/Alert';
+
+const alertTextIconChange = 'Change Icons key QWERTY'
 
 class IconsList extends React.Component {
   constructor(props) {
@@ -37,7 +40,7 @@ class IconsList extends React.Component {
     document.addEventListener('keydown', evt => {
       let icons = null
 
-      const chengeIndexIcon = (field) => {
+      const changeIndexIcon = (field) => {
         this.setState(prevState => {
           icons = Object.assign({}, prevState.icons)
           icons[field].indx = this.state.icons[field].indx >= this.state.icons[field].items.length - 1 ? 0 : icons[field].indx + 1
@@ -49,22 +52,22 @@ class IconsList extends React.Component {
 
       switch (evt.keyCode) {
         case 81:
-          chengeIndexIcon('q')
+          changeIndexIcon('q')
           break;
         case 87:
-          chengeIndexIcon('w')
+          changeIndexIcon('w')
           break;
         case 69:
-          chengeIndexIcon('e')
+          changeIndexIcon('e')
           break;
         case 82:
-          chengeIndexIcon('r')
+          changeIndexIcon('r')
           break;
         case 84:
-          chengeIndexIcon('t')
+          changeIndexIcon('t')
           break;
         case 89:
-          chengeIndexIcon('y')
+          changeIndexIcon('y')
           break;
       }
     })
@@ -82,9 +85,7 @@ class IconsList extends React.Component {
             ))
           }
         </div>
-        <div className="alert alert-warning" role="alert">
-          Change Icons key QWERTY
-        </div>
+        <Alert text={alertTextIconChange} bgColor="warning" />
       </div>
     )
   }
